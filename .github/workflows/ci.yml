@@ -8,7 +8,7 @@ jobs:
     uses: ./.github/workflows/part.yml
   get-environment:
     runs-on: ubuntu-latest
-    depends-on: set-environment
+    needs: set-environment
     steps:
       - name: Get env
         run: |
