@@ -1,0 +1,13 @@
+on:
+  push
+
+jobs:
+  get-environment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: call part
+        uses: .github/workflows/part.yml
+      - name: Print env
+        run: |
+          echo TEST_ENV=$TEST_ENV

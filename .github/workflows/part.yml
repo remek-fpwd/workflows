@@ -1,0 +1,13 @@
+name: test
+
+on:
+  workflow_call
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set env
+        run: |
+          echo "TEST_ENV=test" >> $GITHUB_ENV
+
