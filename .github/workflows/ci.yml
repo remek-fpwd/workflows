@@ -1,13 +1,15 @@
+name: ci
+
 on:
   push
 
 jobs:
+  set-environment:
+    uses: ./.github/workflows/part.yml
   get-environment:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    depends-on: set-environment
     steps:
-      - name: call part
-        uses: ./.github/workflows/part.yml
-      - name: Print env
+      - name: Get env
         run: |
           echo TEST_ENV=$TEST_ENV
